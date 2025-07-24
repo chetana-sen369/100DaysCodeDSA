@@ -1,5 +1,5 @@
 //100 Days of Code
-//Day-02
+//Day-03
 //problem-01: Detect and Merge Duplicate Product Entries (Advanced Cleanup).
 // Expected Output:
 // [
