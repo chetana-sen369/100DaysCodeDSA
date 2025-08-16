@@ -39,9 +39,6 @@ while(orangeCount>=1 && whiteCount>=1 && greenCount>=1){
     }
     left++;
 }
-if(orangeCount>=1 && whiteCount>=1 && greenCount>=1){
-        minLength=Math.min(minLength,right-left+1);
-    }
     }
 
 if(minLength==Infinity){
@@ -50,4 +47,5 @@ if(minLength==Infinity){
     return minLength;
 }
 }
+
 console.log(indianFlag(["blue", "orange", "white", "green","blue", "orange"]))
