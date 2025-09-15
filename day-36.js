@@ -52,15 +52,17 @@ class doublyLinkedList {
             current = current.next;
             count++;
         }
-        if (current === this.tail) {
+        if (current === null) {
             this.addTail(song);
         } else if (current != null) {
             const newNode = new Node(song);
             newNode.next = current.next;
             newNode.prev = current;
 
-            if (current.next != null) {
+            if (current.next !== null) {
                 current.next.prev = newNode;
+            }else{
+                this.tail=newNode;
             }
             current.next = newNode;
         }
@@ -91,3 +93,5 @@ list.addTail("songC");
 list.addAtIndex("songX", 1);
 list.showForward();
 list.showBackward();
+
+
