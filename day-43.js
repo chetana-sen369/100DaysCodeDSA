@@ -15,7 +15,6 @@ class circularLinkedList{
     constructor(){
         this.head=null;
         this.tail=null;
-        this.size=0;
     }
     insertAtHead(data){
     let newNode= new Node(data);
@@ -65,9 +64,10 @@ class circularLinkedList{
     }while(current!=this.head);
   }
 }
-let list = new circularLinkedList();
+const list = new circularLinkedList();
 list.insertAtTail("Task 1");
 list.insertAtTail("Task 2");
 list.insertAtHead("Task 3");
 list.displayTasks();
+
 list.simulateRoundRobin();
