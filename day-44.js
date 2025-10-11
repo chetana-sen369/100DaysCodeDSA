@@ -12,63 +12,63 @@ class Node{
         this.next=null;
     }  
 }
-class circularLinkedList{
-    constructor(){
-        this.head=null;
-        this.tail=null;
-        this.size=0;
+class CircularLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
     }
-    addSongAtEnd(song){
-    let newNode=new Node(song);
-    if(!this.head) {
-       this.head=this.tail=newNode;
-       newNode.next=newNode;
-    }else{
-           this.tail.next=newNode;
-           this.tail=newNode;
-           this.tail.next=this.head;
-    }
-    this.size++;
-    }
-    addSongAtBeginning(song){
-        let newNode=new Node(song);
-        if(!this.head){
-            this.head=this.tail=newNode;
-            newNode.next=newNode;
-        }else{
-               newNode.next=this.head;
-               this.head=newNode;
-               this.tail.next=this.head;
-        }
-        this.size++;
-    }
-      showPlaylist(){
+
+    addSongAtEnd(song) {
+        let newNode = new Node(song);
         if (!this.head) {
-        console.log("Playlist is empty");
-        return;
+            this.head = this.tail = newNode;
+            newNode.next = newNode;
+        } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+            this.tail.next = this.head;
+        }
     }
-        let result=[];
-        let current=this.head;
-        do{
-            result.push(current.data);
-            current=current.next;
-        }while(current!==this.head);
-        console.log("Playlist:", result.join("->"));
-        return result;
+
+    insertSongAtBeginning(song) {
+        let newNode = new Node(song);
+        if (!this.head) {
+            this.head = this.tail = newNode;
+            newNode.next = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+            this.tail.next = this.head;
+        }
     }
-    playSongOnLoop(k){
-        let result=[];
-        let current=this.head;
-        if(!this.head) {
-            console.log("playlist is empty");
+
+    showPlaylist() {
+        if (!this.head) {
+            console.log("Playlist is empty");
             return;
         }
-        for(let i=0;i<k;i++){
-             console.log(`Playing ${current.data}`);
-             current=current.next;
+        let result = [];
+        let current = this.head;
+        do {
+            result.push(current.data);
+            current = current.next;
+        } while (current !== this.head);
+        console.log("Playlist:", result.join(" -> "));
+    }
+
+    playSongOnLoop(k) {
+        if (!this.head) {
+            console.log("Playlist is empty");
+            return;
+        }
+        let current = this.head;
+        for (let i = 0; i < k; i++) {
+            console.log(`Playing: ${current.data}`);
+            current = current.next;
         }
     }
 }
+
 const playlist=new circularLinkedList();
 playlist.addSongAtEnd("Shape of you");
 playlist.addSongAtEnd("Believer");
