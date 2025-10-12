@@ -17,14 +17,15 @@ class LinkedList{
         this.head=null;
         this.tail=null;
     }
-    insertAtHead(data){
-        const newNode=new Node(data);
-        newNode.next=this.head;
-        this.head=newNode;
-    if(!this.tail){
-        this.tail=newNode;
-    }
- }
+    insertAtTail(data) {
+  const newNode = new Node(data);
+  if (!this.head) {
+    this.head = this.tail = newNode;
+  } else {
+    this.tail.next = newNode;
+    this.tail = newNode;
+  }
+}
  findMiddleNode(){
     let fast=this.head;
     let slow=this.head;
@@ -49,11 +50,11 @@ class LinkedList{
  }
 }
 let list=new LinkedList();
-list.insertAtHead(60);
-list.insertAtHead(50);
-list.insertAtHead(40);
-list.insertAtHead(30);
-list.insertAtHead(20);
-list.insertAtHead(10);
+list.insertAtTail(10);
+list.insertAtTail(20);
+list.insertAtTail(30);
+list.insertAtTail(40);
+list.insertAtTail(50);
+list.insertAtTail(60);
 list.printList();
 list.findMiddleNode();
